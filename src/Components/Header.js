@@ -4,7 +4,7 @@ import '../styles.scss'
 export function Header() {
   return (
     <div className="Header"> 
-        <h1>ToDo's </h1>
+        <h1>todos </h1>
     </div>
   )
 }

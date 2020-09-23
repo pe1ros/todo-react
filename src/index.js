@@ -6,10 +6,7 @@ import {store} from './redux/store'
 import { Provider } from 'react-redux'
 
 ReactDOM.render( 
-  <Provider store={store}>
-    <App />
-  </Provider> ,
-  document.getElementById('root')
+    <App />, document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

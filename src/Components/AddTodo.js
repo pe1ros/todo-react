@@ -7,8 +7,7 @@ class AddTodo extends Component{
   constructor(props){
     super(props)
     this.state ={
-      description:"",
-      completed: false,
+      description:"", 
     }
   }
   changeHandler = (e) =>{
@@ -19,13 +18,7 @@ class AddTodo extends Component{
     this.props.addTodo({
       id:Date.now(),
       description:this.state.description, 
-      completed:this.state.completed})
-
-    localStorage.setItem('todos',JSON.stringify({
-      id:Date.now(),
-      description:this.state.description, 
-      completed:this.state.completed}))
-      
+      completed:false}) 
     this.setState({description:''})
  
   }
@@ -36,7 +29,7 @@ class AddTodo extends Component{
         <form className="AddTodo" action='submit' onSubmit={this.submitHandler}>
           <input type='text' 
             name='description' 
-            placeholder="Add your current business and push Enter" 
+            placeholder="What needs to be done?" 
             onChange={this.changeHandler} 
             value={this.state.description}/> 
         </form>
@@ -44,14 +37,14 @@ class AddTodo extends Component{
     )
   }
 }
-const mapStateToProps = (store) =>{
-  return{
-    todos: store.todos
-  }
-}
-const mapDispatchToProps = (dispatch) =>{ 
-  return{
-    addTodo: (data) => dispatch(addTodo(data))
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(AddTodo)
+// const mapStateToProps = (store) =>{
+//   return{
+//     todos: store.todos
+//   }
+// }
+// const mapDispatchToProps = (dispatch) =>{ 
+//   return{
+//     addTodo: (data) => dispatch(addTodo(data))
+//   }
+// }
+export default AddTodo
