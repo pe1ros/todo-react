@@ -37,14 +37,14 @@ class AddTodo extends Component{
     )
   }
 }
-// const mapStateToProps = (store) =>{
-//   return{
-//     todos: store.todos
-//   }
-// }
-// const mapDispatchToProps = (dispatch) =>{ 
-//   return{
-//     addTodo: (data) => dispatch(addTodo(data))
-//   }
-// }
-export default AddTodo
+const mapStateToProps = (store) =>{
+  return{
+    todos: store.todos
+  }
+}
+const mapDispatchToProps = (dispatch) =>{ 
+  return{
+    addTodo: (data) => dispatch(addTodo(data))
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(AddTodo)

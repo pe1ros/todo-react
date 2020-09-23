@@ -24,9 +24,9 @@ export  function toggleTodo(id) {
   })
 }
 
-export  function updateTodo(data) {
+export  function editDescTodo(id,text) { 
   return({
     type: UPDATE_TODO,
-    payload: data
+    payload: id,text
   })
 }

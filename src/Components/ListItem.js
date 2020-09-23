@@ -1,6 +1,6 @@
 import React, {Component} from "react" 
 import { connect } from 'react-redux' 
-import { deleteTodo,toggleTodo } from "../redux/pageActions" 
+import { deleteTodo,toggleTodo,editDescTodo } from "../redux/pageActions" 
 import '../styles.scss'
 
 class ListItem extends Component{  
@@ -67,15 +67,18 @@ class ListItem extends Component{
   }
 }
   
-// const mapStateToProps = (store) =>{
-//   return{
-//     todos: store.todos
-//   }
-// }
-// const mapDispatchToProps = (dispatch) =>{ 
-//   return{ 
-//     deleteTodo:(id)=>dispatch(deleteTodo(id)),
-//     toggleTodo:(id)=>dispatch(toggleTodo(id))
-//   }
-// }
-export default ListItem
+const mapStateToProps = (store) =>{
+  return{
+    todos: store.todos
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{ 
+  return{  
+    deleteTodo:(id)=>dispatch(deleteTodo(id)),
+    toggleTodo:(id)=>dispatch(toggleTodo(id)),
+    editDescTodo:(id,text)=>dispatch(editDescTodo(id,text))
+
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ListItem)
