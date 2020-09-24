@@ -4,7 +4,9 @@ import '../styles.scss'
 export function Footer(props) { 
 
   const changeFilter = (e) =>{
+    if(e.target.innerText === 'All'){
       props.setFilter("SHOW_ALL")
+    }  
     if(e.target.innerText === 'Active'){
       props.setFilter("SHOW_ACTIVE")
     }
@@ -26,7 +28,7 @@ export function Footer(props) {
       <span>{getItemsStatus(props.todos,false).length} items left</span>
     </div>
     <div className="Footer__filter">
-      <button  autoFocus style={{border: props.filter === "SHOW_ALL" ? '1px solid' : ""}} onClick={changeFilter}>All</button>
+      <button autoFocus style={{border: props.filter === "SHOW_ALL" ? '1px solid' : ""}} onClick={changeFilter}>All</button>
       <button style={{border: props.filter === "SHOW_ACTIVE" ? '1px solid' : ""}} onClick={changeFilter}>Active</button>
       <button style={{border: props.filter === "SHOW_COMPLETED" ? '1px solid' : ""}} onClick={changeFilter}>Completed</button>
     </div>
