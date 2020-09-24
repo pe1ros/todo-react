@@ -5,7 +5,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 .Header{
-  height: 130px; 
+  height: 120px; 
   margin-top: 15px 0 15px 0;
   background: #fff;
   text-align: center;
@@ -39,6 +39,11 @@
     height: 80%;
     font-size: 20px;
     border: none;
+    outline: none;
+    font-size: 24px;
+  }
+  input::placeholder{
+    opacity: 0.2;
   }
 }
 .listTodo{
@@ -69,7 +74,7 @@
     border: 1px solid #ddd;
     -webkit-appearance: none;
     outline: none;
-    cursor: pointer; 
+    cursor: pointer;
   }
   input:first-child:checked {  
     position:absolute;
