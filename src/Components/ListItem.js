@@ -36,7 +36,8 @@ class ListItem extends Component{
     } 
     return (
       <div className="listItem">  
-        <input type='checkbox' checked={this.props.todo.completed} onChange={this.toggleHandler}/> 
+        <input type='checkbox' checked={this.props.todo.completed} onChange={this.toggleHandler}/>
+        <i style={{display: this.props.todo.completed ? '' : "none"}}> &#10004;</i>
         <div 
           onDoubleClick={this.editModalHandler} 
           className={classNameDesc}
@@ -69,7 +70,6 @@ class ListItem extends Component{
   
 const mapStateToProps = (store) =>{
   return{
-    todos: store.todos
   }
 }
 

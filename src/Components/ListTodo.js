@@ -5,8 +5,7 @@ import ListItem from "./ListItem"
 import AddTodo from './AddTodo'
 
 class ListTodo extends Component{ 
-  render(){  
- 
+  render(){   
     return (
       <div className="listTodo"> 
         <AddTodo />  

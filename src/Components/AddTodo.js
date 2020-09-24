@@ -38,8 +38,7 @@ class AddTodo extends Component{
   }
 }
 const mapStateToProps = (store) =>{
-  return{
-    todos: store.todos
+  return{ 
   }
 }
 const mapDispatchToProps = (dispatch) =>{ 

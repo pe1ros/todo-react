@@ -5,16 +5,18 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 .Header{
-  height: auto;
+  height: 135px;
   max-width: 550px;
   margin: auto;
   background: #fff;
   text-align: center;
   h1{ 
     color: rgba(175, 47, 47, 0.15); 
-    height: 120px;
-    font-size: 105px;
+    height: 110px;
+    font-size: 100px;
     font-weight: 100; 
+    width: 300px; 
+    margin: auto;
   }
 }
 .App{   
@@ -31,7 +33,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px solid rgb(189, 189, 189);
+  border-bottom: 1px solid rgb(219, 219, 219);
   input{
     width: 80%;
     height: 80%;
@@ -40,9 +42,8 @@
   }
 }
 .listTodo{
-  max-width: 550px;
-  min-height: 70px;
-  margin: 10px auto ; 
+  max-width: 550px; 
+  margin:  auto ; 
 }
 .listItem{
   display: flex;
@@ -53,9 +54,24 @@
   align-items: center;
   position: relative;
   margin: 5px;
-  input:first-child{
+  i { 
+    left: 10px;
+    font-size: 30px; 
+    color:rgb(0, 211, 0);
+  }
+  input:first-child{ 
+    position:relative;
     height: 30px;
-    width: 30px; 
+    width: 30px;  
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer; 
+  }
+  input:first-child:checked {  
+    position:absolute;
   }
   &__btnclose{ 
     display: none;
@@ -87,12 +103,27 @@
     color: #cc9a9a;
   }
 }
-.Footer{
+.Footer {
   max-width: 550px; 
-  min-height: 35px;
+  min-height: 40px;
   margin: auto;
   background-color: rgb(255, 255, 255); 
-  text-align: center; 
+  text-align: center;  
+  flex-direction: row; 
+  &__spanitems{
+    margin-top: 10px;
+    margin-left: 20px;
+    span{
+      color: #777;
+      font-size: 15px;
+    }
+  }
+  &__filter{
+    margin-left: 70px;
+  }
+  &__clearitems{
+    margin-left: 20px;
+  }
   button{
     height: 25px;
     min-width: 35px;
