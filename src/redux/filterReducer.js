@@ -1,5 +1,5 @@
 const initialState = {
-  filter:"SHOW_ALL'"
+  filter:"SHOW_ALL"
 }
 
 export function filterReducer(state = initialState, action) {
