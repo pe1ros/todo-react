@@ -5,8 +5,7 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 .Header{
-  height: 135px;
-  max-width: 550px;
+  height: 135px; 
   margin: auto;
   background: #fff;
   text-align: center;
@@ -86,6 +85,7 @@
   }
   &__inputmodal{
     width: 400px;
+    margin-left: 10px;
     height: 100%;
   }
 }
