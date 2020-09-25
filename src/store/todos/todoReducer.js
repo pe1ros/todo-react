@@ -1,4 +1,4 @@
-import {ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, CLEAR_COMPLETED} from './pageActions'
+import {ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, CLEAR_COMPLETED} from "../constants"
 
 const initialState = {
   todos: JSON.parse(localStorage.getItem('todos')) || [],
@@ -7,7 +7,10 @@ const initialState = {
 export function todoReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
-        return { todos: [...state.todos, action.payload]}
+        return { todos: [...state.todos, 
+          { id:Date.now(),
+            description:action.payload, 
+            completed:false}]}
     case DELETE_TODO:
         return { todos:[...state.todos.filter(todo => todo.id !== action.payload)]}
     case TOGGLE_TODO:

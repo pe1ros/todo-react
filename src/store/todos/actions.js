@@ -1,10 +1,4 @@
-export const ADD_TODO = "ADD_TODO"
-export const DELETE_TODO = "DELETE_TODO"
-export const UPDATE_TODO = "UPDATE_TODO"
-export const TOGGLE_TODO = "TOGGLE_TODO"
-
-export const SET_FILTER = "SET_FILTER"
-export const CLEAR_COMPLETED = "CLEAR_COMPLETED"
+import {ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, SET_FILTER, CLEAR_COMPLETED} from "../constants"
 
 export  function addTodo(todo) {
   return({
@@ -31,13 +25,6 @@ export  function editDescTodo(id,text) {
   return({
     type: UPDATE_TODO,
     payload: id,text
-  })
-}
-
-export  function setFilter(filter) { 
-  return({
-    type: SET_FILTER,
-    payload: filter
   })
 }
 

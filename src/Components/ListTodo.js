@@ -1,22 +1,28 @@
-import React, {Component} from "react"
-import { connect } from 'react-redux' 
-import '../styles.scss'
-import ListItem from "./ListItem"
-import AddTodo from './AddTodo'
+import React, { Component } from "react";
+import "../styles.scss";
+import ListItem from "./ListItem";
+import AddTodo from "./AddTodo";
+import PropTypes from "prop-types"; 
 
-class ListTodo extends Component{ 
-  render(){   
+class ListTodo extends Component {
+  render() {
+     
     return (
-      <div className="listTodo"> 
-        <AddTodo />  
-        {this.props.todos && this.props.todos.map((t,k) => 
-          <ListItem 
-            key={k} 
-            todo={t} 
-            />)}
+      <div className="listTodo">
+        <AddTodo />
+        
+        {this.props.todos && this.props.todos.map((todo, index) => (
+          <ListItem
+            key={index}
+            todo={todo}
+          />
+        ))}
       </div>
-    )
+    );
   }
-} 
+}
+ListTodo.propTypes = {
+  todos: PropTypes.array,
+}
 
-export default ListTodo
+export default ListTodo;

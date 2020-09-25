@@ -84,8 +84,7 @@
   } 
   &__description{
     margin-left: 20px;
-    &--completed{ 
-      margin-left: 20px;
+    &--completed{  
       text-decoration: line-through;
       color: rgb(182, 182, 182);
       font-size: 20px;
@@ -142,5 +141,27 @@
     background-color: white;
     color:#7e7e7e;
     font-size: 15px;
+  }
+}
+@media screen and (max-width: 400px){
+  .Footer{
+    flex-direction: column;
+    &__spanitems{
+      text-align: left;  
+      margin-bottom: 5px;
+      span{
+        color: #777;
+        font-size: 15px;
+      }
+    }
+    &__filter{
+      margin-left: 30px;
+      order: 2;
+    }
+    &__clearitems{
+      position: absolute;
+      order: 1;  
+      margin-left: 50%;
+    }
   }
 }
