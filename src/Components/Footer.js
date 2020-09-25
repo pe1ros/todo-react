@@ -28,10 +28,10 @@ export function Footer(props) {
     props.todos[i].completed === true && countCheckedTodo++ 
   }
 
-  let classNames = require('classnames');
-  let showFooter = classNames({'flex':props.todos.length, 'none':!props.todos.length})
+  let classNames = require("classnames");
+  let showFooter = classNames({"flex":props.todos.length, "none":!props.todos.length})
   let borderFilter = classNames("1px solid")
-  let clearItems = classNames({'none':!countCheckedTodo })
+  let clearItems = classNames({"none":!countCheckedTodo })
 
   return (
     <div className="Footer" style={{ display: showFooter}}>

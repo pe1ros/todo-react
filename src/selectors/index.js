@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect'
+import { createSelector } from "reselect"
 import {SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE} from "../store/constants"
 
 const getVisibilityFilter = (store) => store.filterReducer.filter

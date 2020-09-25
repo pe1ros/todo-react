@@ -16,10 +16,8 @@ class AddTodo extends Component{
   }
   submitHandler = (e) =>{
     e.preventDefault()  
-
     this.props.addTodo( this.state.description ) 
-    this.setState({description:""})
- 
+    this.setState({description:""}) 
   }
   render(){
     return (

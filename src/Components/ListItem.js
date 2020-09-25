@@ -33,12 +33,15 @@ class ListItem extends Component{
   render(){ 
     let classNames = require('classnames');
     let classNameDesc = "listItem__description";
+
     if(this.props.todo.completed){
       classNameDesc+= " listItem__description--completed"
     } 
+
     let editMode = classNames({'none':!this.state.modalOpen})
     let notEditMode = classNames({'none':this.state.modalOpen})
     let completedTask = classNames({'none':!this.props.todo.completed})
+    
     return (
       <div className="listItem">  
         <input type="checkbox" checked={this.props.todo.completed} onChange={this.toggleHandler}/>
