@@ -20,7 +20,7 @@ export function Footer(props) {
   };
   function getItemsStatus(list, flag) {
     const listItems = list.filter((item) => item.completed === flag);
-    return listItems;
+    return listItems.length;
   }
   
   let countCheckedTodo = 0
@@ -32,12 +32,13 @@ export function Footer(props) {
   let showFooter = classNames({"flex":props.todos.length, "none":!props.todos.length})
   let borderFilter = classNames("1px solid")
   let clearItems = classNames({"none":!countCheckedTodo })
-
+  let itemsLeft = getItemsStatus(props.todos, false)
+  let completedItems = getItemsStatus(props.todos, true)
   return (
     <div className="Footer" style={{ display: showFooter}}>
       <div className="Footer__spanitems">
         <span>
-          {getItemsStatus(props.todos, false).length}
+          {itemsLeft}
           {' '}
           items left
         </span>
@@ -49,9 +50,7 @@ export function Footer(props) {
       </div>
       <div className="Footer__clearitems">
         <button style={{ display: clearItems}} onClick={clearAllCompleted}>
-          Clear completed [
-          {getItemsStatus(props.todos, true).length}
-          ]
+          Clear completed [{completedItems}]
         </button>
       </div>
     </div>
