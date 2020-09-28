@@ -6,9 +6,10 @@ import { connect } from "react-redux"
 import {deleteTodo,toggleTodo,clearCompleted} from "./store/todos/actions"
 import {setFilter} from "./store/filter/actions"
 import {getVisibleTodos} from "./selectors/index"
+import PropTypes from "prop-types"; 
 
 class App extends Component{ 
-  render (){      
+  render (){       
     return (
       <div className="App">
         <Header/>
@@ -44,4 +45,15 @@ const mapDispatchToProps = (dispatch) =>{
     clearCompleted:()=> dispatch(clearCompleted())
   }
 }
+
+App.propTypess ={
+  clearCompleted: PropTypes.func,
+  deleteTodo: PropTypes.func,
+  filter: PropTypes.string,
+  setFilter: PropTypes.func,
+  todos: PropTypes.array,
+  todosFiltred: PropTypes.array,
+  toggleTodo: PropTypes.func,
+}
+
 export default connect(mapStateToProps, mapDispatchToProps)(App)
