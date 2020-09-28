@@ -3,11 +3,7 @@
         "browser": true,
         "es2021": true
     },
-    "eslint.autoFixOnSave":true,
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
-    ],
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true
@@ -15,11 +11,15 @@
         "ecmaVersion": 12,
         "sourceType": "module"
     },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
+    ],
     "plugins": [
         "react"
     ],
     "rules": {
-        "react/jsx-filename-extension": [1, {
-        "extensions": [".js", ".jsx"]}
-    ]}
+        "react/jsx-filename-extension": [1, {"extensions": [".js", ".jsx"]}],
+        "import/prefer-default-export": 0
+    }
 }

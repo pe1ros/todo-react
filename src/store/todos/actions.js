@@ -1,35 +1,38 @@
-import {ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, SET_FILTER, CLEAR_COMPLETED} from "../constants"
+import {
+  ADD_TODO, DELETE_TODO, TOGGLE_TODO, UPDATE_TODO, CLEAR_COMPLETED,
+} from '../constants';
 
-export  function addTodo(todo) {
-  return({
+export function addTodo(todo) {
+  return ({
     type: ADD_TODO,
-    payload: todo
-  })
+    payload: todo,
+  });
 }
 
-export  function deleteTodo(id) {
-  return({
+export function deleteTodo(id) {
+  return ({
     type: DELETE_TODO,
-    payload: id
-  })
+    payload: id,
+  });
 }
 
-export  function toggleTodo(id) {
-  return({
+export function toggleTodo(id) {
+  return ({
     type: TOGGLE_TODO,
-    payload: id
-  })
+    payload: id,
+  });
 }
 
-export  function editDescTodo(id,text) { 
-  return({
+export function editDescTodo(id, text) {
+  return ({
     type: UPDATE_TODO,
-    payload: id,text
-  })
+    payload: id,
+    text,
+  });
 }
 
-export  function clearCompleted() { 
-  return({
+export function clearCompleted() {
+  return ({
     type: CLEAR_COMPLETED,
-  })
+  });
 }

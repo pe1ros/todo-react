@@ -1,17 +1,17 @@
-import React from "react";
-import "../styles.scss";
-import PropTypes from "prop-types"; 
-import {SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE} from "../store/constants"
+import React from 'react';
+import '../styles.scss';
+import PropTypes from 'prop-types';
+import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../store/constants';
 
 export function Footer(props) {
   const changeFilter = (e) => {
-    if (e.target.innerText === "All") {
+    if (e.target.innerText === 'All') {
       props.setFilter(SHOW_ALL);
     }
-    if (e.target.innerText === "Active") {
+    if (e.target.innerText === 'Active') {
       props.setFilter(SHOW_ACTIVE);
     }
-    if (e.target.innerText === "Completed") {
+    if (e.target.innerText === 'Completed') {
       props.setFilter(SHOW_COMPLETED);
     }
   };
@@ -22,20 +22,24 @@ export function Footer(props) {
     const listItems = list.filter((item) => item.completed === flag);
     return listItems.length;
   }
-  
-  let countCheckedTodo = 0
-  for(let i = 0; i<props.todos.length;i++){
-    props.todos[i].completed === true && countCheckedTodo++ 
+  const { todos, filter } = props;
+  let countCheckedTodo = 0;
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].completed === true) {
+      // eslint-disable-next-line no-plusplus
+      countCheckedTodo++;
+    }
   }
-
-  let classNames = require("classnames");
-  let showFooter = classNames({"flex":props.todos.length, "none":!props.todos.length})
-  let borderFilter = classNames("1px solid")
-  let clearItems = classNames({"none":!countCheckedTodo })
-  let itemsLeft = getItemsStatus(props.todos, false)
-  let completedItems = getItemsStatus(props.todos, true)
+  // eslint-disable-next-line global-require
+  const classNames = require('classnames');
+  const showFooter = classNames({ flex: todos.length, none: !todos.length });
+  const borderFilter = classNames('1px solid');
+  const clearItems = classNames({ none: !countCheckedTodo });
+  const itemsLeft = getItemsStatus(todos, false);
+  const completedItems = getItemsStatus(todos, true);
   return (
-    <div className="Footer" style={{ display: showFooter}}>
+    <div className="Footer" style={{ display: showFooter }}>
       <div className="Footer__spanitems">
         <span>
           {itemsLeft}
@@ -44,22 +48,46 @@ export function Footer(props) {
         </span>
       </div>
       <div className="Footer__filter">
-        <button style={{ border: props.filter === SHOW_ALL && borderFilter}} onClick={changeFilter}>All</button>
-        <button style={{ border: props.filter === SHOW_ACTIVE && borderFilter}} onClick={changeFilter}>Active</button>
-        <button style={{ border: props.filter === SHOW_COMPLETED && borderFilter}} onClick={changeFilter}>Completed</button>
+        <button
+          type="button"
+          style={{ border: filter === SHOW_ALL && borderFilter }}
+          onClick={changeFilter}
+        >
+          All
+        </button>
+        <button
+          type="button"
+          style={{ border: filter === SHOW_ACTIVE && borderFilter }}
+          onClick={changeFilter}
+        >
+          Active
+        </button>
+        <button
+          type="button"
+          style={{ border: filter === SHOW_COMPLETED && borderFilter }}
+          onClick={changeFilter}
+        >
+          Completed
+        </button>
       </div>
       <div className="Footer__clearitems">
-        <button style={{ display: clearItems}} onClick={clearAllCompleted}>
-          Clear completed [{completedItems}]
+        <button
+          type="button"
+          style={{ display: clearItems }}
+          onClick={clearAllCompleted}
+        >
+          Clear completed [
+          {completedItems}
+          ]
         </button>
       </div>
     </div>
   );
 }
-Footer.propTypess ={
-  todos: PropTypes.array,
-  filter: PropTypes.string,
-  setFilter: PropTypes.func,
-  clearCompleted: PropTypes.func,
-}
+Footer.propTypes = {
+  todos: PropTypes.instanceOf(Array).isRequired,
+  filter: PropTypes.string.isRequired,
+  setFilter: PropTypes.func.isRequired,
+  clearCompleted: PropTypes.func.isRequired,
+};
 export default Footer;

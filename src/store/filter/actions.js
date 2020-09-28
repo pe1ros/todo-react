@@ -1,8 +1,8 @@
-import {SET_FILTER} from "../constants"
+import { SET_FILTER } from '../constants';
 
-export  function setFilter(filter) { 
-  return({
+export function setFilter(filter) {
+  return ({
     type: SET_FILTER,
-    payload:filter,
-  })
+    payload: filter,
+  });
 }

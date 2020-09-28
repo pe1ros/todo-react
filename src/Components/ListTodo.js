@@ -1,28 +1,26 @@
-import React, { Component } from "react";
-import "../styles.scss";
-import ListItem from "./ListItem";
-import AddTodo from "./AddTodo";
-import PropTypes from "prop-types"; 
+import React from 'react';
+import '../styles.scss';
+import PropTypes from 'prop-types';
+import ListItem from './ListItem';
+import AddTodo from './AddTodo';
 
-class ListTodo extends Component {
-  render() {
-     
-    return (
-      <div className="listTodo">
-        <AddTodo />
-        
-        {this.props.todos && this.props.todos.map((todo, index) => (
-          <ListItem
-            key={index}
-            todo={todo}
-          />
-        ))}
-      </div>
-    );
-  }
-}
+const ListTodo = (props) => {
+  const { todos } = props;
+    <div className="listTodo">
+      <AddTodo />
+
+      {todos && todos.map((todo, index) => (
+        <ListItem
+          // eslint-disable-next-line react/no-array-index-key
+          key={index}
+          todo={todo}
+        />
+      ))}
+    </div>;
+};
+
 ListTodo.propTypes = {
-  todos: PropTypes.array,
-}
+  todos: PropTypes.instanceOf(Array).isRequired,
+};
 
 export default ListTodo;

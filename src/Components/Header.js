@@ -1,8 +1,7 @@
-import React from "react";
-import "../styles.scss";
+import React from 'react';
+import '../styles.scss';
 
-export function Header(props) {
-
+export function Header() {
   return (
     <div className="Header">
       <h1>todos</h1>
