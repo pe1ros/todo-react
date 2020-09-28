@@ -9,7 +9,9 @@ import { setFilter } from './store/filter/actions';
 import { getVisibleTodos } from './selectors/index';
 
 const App = (props) => {
-  const { todosFiltred, todos, filter } = props;
+  const {
+    todosFiltred, todos, filter, setFilter, clearCompleted,
+  } = props;
   return (
     <div className="App">
       <Header />

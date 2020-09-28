@@ -4,25 +4,27 @@ import PropTypes from 'prop-types';
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../store/constants';
 
 export function Footer(props) {
+  const {
+    todos, filter, setFilter, clearCompleted,
+  } = props;
   const changeFilter = (e) => {
     if (e.target.innerText === 'All') {
-      props.setFilter(SHOW_ALL);
+      setFilter(SHOW_ALL);
     }
     if (e.target.innerText === 'Active') {
-      props.setFilter(SHOW_ACTIVE);
+      setFilter(SHOW_ACTIVE);
     }
     if (e.target.innerText === 'Completed') {
-      props.setFilter(SHOW_COMPLETED);
+      setFilter(SHOW_COMPLETED);
     }
   };
   const clearAllCompleted = () => {
-    props.clearCompleted();
+    clearCompleted();
   };
   function getItemsStatus(list, flag) {
     const listItems = list.filter((item) => item.completed === flag);
     return listItems.length;
   }
-  const { todos, filter } = props;
   let countCheckedTodo = 0;
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < todos.length; i++) {

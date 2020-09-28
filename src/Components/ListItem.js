@@ -11,11 +11,10 @@ const ListItem = (props) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const changeHandler = (event) => {
-    setNewDesc({ newDesc: event.target.value });
+    setNewDesc(event.target.value);
   };
 
-  const deleteHandler = (e) => {
-    e.preventDefault();
+  const deleteHandler = () => {
     ondeleteTodo(todo.id);
   };
 
@@ -24,12 +23,12 @@ const ListItem = (props) => {
   };
 
   const editModalHandler = () => {
-    setModalOpen({ modalOpen: !modalOpen });
+    setModalOpen(!modalOpen);
   };
 
   const saveModalHandler = () => {
-    setModalOpen({ modalOpen: !modalOpen });
     oneditDescTodo(todo.id, newDesc);
+    setModalOpen(!modalOpen);
   };
 
   // eslint-disable-next-line global-require
@@ -78,17 +77,20 @@ const ListItem = (props) => {
       >
         Cancel
       </button>
-
       <button
         type="button"
-        aria-label="Mute volume"
         className="listItem__btnclose"
         onClick={deleteHandler}
         style={{ display: notEditMode }}
-      />
+      >
+        X
+      </button>
     </div>
   );
 };
+const mapStateToProps = (store) => ({
+  todos: store.todos,
+});
 const mapDispatchToProps = (dispatch) => ({
   ondeleteTodo: (id) => dispatch(deleteTodo(id)),
   ontoggleTodo: (id) => dispatch(toggleTodo(id)),
@@ -96,9 +98,9 @@ const mapDispatchToProps = (dispatch) => ({
 
 });
 ListItem.propTypes = {
-  todo: PropTypes.objectOf(PropTypes.object).isRequired,
+  todo: PropTypes.objectOf(Object).isRequired,
   ondeleteTodo: PropTypes.func.isRequired,
   ontoggleTodo: PropTypes.func.isRequired,
   oneditDescTodo: PropTypes.func.isRequired,
 };
-export default connect(null, mapDispatchToProps)(ListItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ListItem);

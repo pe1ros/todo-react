@@ -6,6 +6,7 @@ import AddTodo from './AddTodo';
 
 const ListTodo = (props) => {
   const { todos } = props;
+  return (
     <div className="listTodo">
       <AddTodo />
 
@@ -16,7 +17,8 @@ const ListTodo = (props) => {
           todo={todo}
         />
       ))}
-    </div>;
+    </div>
+  );
 };
 
 ListTodo.propTypes = {
