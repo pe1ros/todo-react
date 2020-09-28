@@ -10,7 +10,7 @@ import { getVisibleTodos } from './selectors/index';
 
 const App = (props) => {
   const {
-    todosFiltred, todos, filter, setFilter, clearCompleted,
+    todosFiltred, todos, filter, onsetFilter, onclearCompleted,
   } = props;
   return (
     <div className="App">
@@ -21,8 +21,8 @@ const App = (props) => {
         />
         <Footer
           todos={todos}
-          setFilter={setFilter}
-          clearCompleted={clearCompleted}
+          setFilter={onsetFilter}
+          clearCompleted={onclearCompleted}
           filter={filter}
         />
       </div>
@@ -39,14 +39,16 @@ const mapStateToProps = (store) => ({
 const mapDispatchToProps = (dispatch) => ({
   deleteTodo: (id) => dispatch(deleteTodo(id)),
   toggleTodo: (id) => dispatch(toggleTodo(id)),
-  setFilter: (filter) => dispatch(setFilter(filter)),
-  clearCompleted: () => dispatch(clearCompleted()),
+  onsetFilter: (filter) => dispatch(setFilter(filter)),
+  onclearCompleted: () => dispatch(clearCompleted()),
 });
 
 App.propTypes = {
   filter: PropTypes.string.isRequired,
   todos: PropTypes.instanceOf(Array).isRequired,
   todosFiltred: PropTypes.instanceOf(Array).isRequired,
+  onsetFilter: PropTypes.func.isRequired,
+  onclearCompleted: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

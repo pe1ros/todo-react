@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classNames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { deleteTodo, toggleTodo, editDescTodo } from '../store/todos/actions';
@@ -31,8 +32,6 @@ const ListItem = (props) => {
     setModalOpen(!modalOpen);
   };
 
-  // eslint-disable-next-line global-require
-  const classNames = require('classnames');
   let classNameDesc = 'listItem__description';
 
   if (todo.completed) {

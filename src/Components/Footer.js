@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import '../styles.scss';
 import PropTypes from 'prop-types';
 import { SHOW_ALL, SHOW_COMPLETED, SHOW_ACTIVE } from '../store/constants';
@@ -33,8 +34,6 @@ export function Footer(props) {
       countCheckedTodo++;
     }
   }
-  // eslint-disable-next-line global-require
-  const classNames = require('classnames');
   const showFooter = classNames({ flex: todos.length, none: !todos.length });
   const borderFilter = classNames('1px solid');
   const clearItems = classNames({ none: !countCheckedTodo });
